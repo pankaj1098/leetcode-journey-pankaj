@@ -21,5 +21,5 @@ function insertionSort(arr) {
   return arr;
 }
 
-let arr = [1, 4, 2, 9, -10, 6, 7];
+let arr = [1, 4, 2, 9, -10, 6, 7, 6];
 console.log(insertionSort(arr)); // [-10, 1, 2, 4, 6, 7, 9]
