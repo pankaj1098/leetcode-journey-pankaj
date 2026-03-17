@@ -64,3 +64,37 @@ function mergeSortBottomUp(arr) {
 }
 
 console.log(mergeSortBottomUp([38, 27, 43, 3, 9, 82, 10])); // [3, 9, 10, 27, 38, 43, 82]
+
+function countInversions(arr) {
+  let count = 0;
+
+  function mergeSort(arr) {
+    if (arr.length <= 1) return arr;
+
+    const mid = Math.floor(arr.length / 2);
+    const left = mergeSort(arr.slice(0, mid));
+    const right = mergeSort(arr.slice(mid));
+
+    return merge(left, right);
+  }
+
+  function merge(left, right) {
+    let res = [],
+      i = 0,
+      j = 0;
+
+    while (i < left.length && j < right.length) {
+      if (left[i] <= right[j]) {
+        res.push(left[i++]);
+      } else {
+        count += left.length - i; // 🔥 main trick
+        res.push(right[j++]);
+      }
+    }
+
+    return [...res, ...left.slice(i), ...right.slice(j)];
+  }
+
+  mergeSort(arr);
+  return count;
+}
