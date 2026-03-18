@@ -42,3 +42,19 @@ function bubbleSortOptimized(arr) {
 }
 
 console.log(bubbleSortOptimized([64, 34, 25, 12, 22, 11, 90])); // [11,12,22,25,34,64,90]
+
+// You are given an array of integers.
+// Instead of fully sorting it, detect the first index where Bubble Sort would perform a swap in the first pass.
+
+function firstUnsortedIndex(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] > arr[i + 1]) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+const arr = [1, 2, 5, 3, 4];
+
+console.log(firstUnsortedIndex(arr));
