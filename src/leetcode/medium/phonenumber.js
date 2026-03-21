@@ -1,8 +1,14 @@
 // LeetCode #17 - Letter Combinations of a Phone Number
 
 const phoneMap = {
-  2: "abc", 3: "def", 4: "ghi", 5: "jkl",
-  6: "mno", 7: "pqrs", 8: "tuv", 9: "wxyz",
+  2: 'abc',
+  3: 'def',
+  4: 'ghi',
+  5: 'jkl',
+  6: 'mno',
+  7: 'pqrs',
+  8: 'tuv',
+  9: 'wxyz',
 };
 
 // Approach 1: Backtracking (Recursion)
@@ -27,12 +33,12 @@ function letterCombinations(digits) {
     }
   }
 
-  backtrack(0, "");
+  backtrack(0, '');
   return result;
 }
 
-console.log(letterCombinations("23"));  // ["ad","ae","af","bd","be","bf","cd","ce","cf"]
-console.log(letterCombinations("2"));   // ["a","b","c"]
+console.log(letterCombinations('23')); // ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+console.log(letterCombinations('2')); // ["a","b","c"]
 
 // Approach 2: Iterative (BFS / Queue)
 // Concept: Start with an empty string in the queue. For each digit, take every
@@ -43,7 +49,7 @@ console.log(letterCombinations("2"));   // ["a","b","c"]
 // Space Complexity: O(4^n * n) — queue holds all combinations at each level
 function letterCombinationsIterative(digits) {
   if (!digits.length) return [];
-  let queue = [""];
+  let queue = [''];
 
   for (let digit of digits) {
     let next = [];
@@ -58,5 +64,11 @@ function letterCombinationsIterative(digits) {
   return queue;
 }
 
-console.log(letterCombinationsIterative("23"));  // ["ad","ae","af","bd","be","bf","cd","ce","cf"]
-console.log(letterCombinationsIterative("2"));   // ["a","b","c"]
+console.log(letterCombinationsIterative('23')); // ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+console.log(letterCombinationsIterative('2')); // ["a","b","c"]
+
+const array = Array.from({ length: 6 }, () => Math.floor(Math.random() * 10));
+
+const nums22 = [-4, -1, 0, 3, 10];
+
+console.log(nums22[0] * nums22[0]);
